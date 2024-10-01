@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudFlare - Websocket</title>
+</head>
+<body>
+    
+    <script>
+        const srv = 'wss://YOUR-CLOUDFLARE-URL'
+        const ws = new WebSocket(srv)
+
+            ws.onopen = () => {
+                console.log('Connecté au WebSocket')
+                ws.send('Bonjour, serveur !')
+            }
+
+            ws.onmessage = event => {
+                console.log('Message reçu du serveur:', event.data)
+            }
+
+            ws.onclose = () => {
+                console.log('Déconnecté du WebSocket')
+            }
+    </script>
+</body>
+</html>
